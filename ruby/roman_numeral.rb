@@ -1,4 +1,33 @@
 def roman_numeral(string)
+
+  romains = {
+    I: 1,
+    IV: 4,
+    V: 5,
+    IX: 9,
+    X: 10,
+    L: 50,
+    C: 100,
+    CD: 400,
+    D: 500,
+    M: 1000
+  }
+
+  total = 0
+  idx = 0
+
+  while idx < string.length
+    twoChar = (string[idx] + (string[idx + 1] || '')).to_sym
+
+    if !romains[twoChar].nil?
+      total += romains[twoChar]
+      idx += 2
+    else
+      total += romains[string[idx].to_sym]
+      idx += 1
+    end
+  end
+  total
   # type your code in here
 end
 

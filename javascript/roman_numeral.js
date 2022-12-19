@@ -1,4 +1,35 @@
 function romanNumeral(string) {
+
+  const romans = {
+    I: 1,
+    IV: 4,
+    V: 5,
+    IX: 9,
+    X: 10,
+    L: 50,
+    C: 100,
+    CD: 400,
+    D: 500,
+    M: 1000
+  }
+
+  let total = 0;
+  let idx = 0;
+
+  while (idx < string.length) {
+    const twoChar = string[idx] + (string[idx + 1] || '');
+
+    if (romans[twoChar] !== undefined) {
+    total += romans[twoChar];
+    idx += 2;
+  } else {
+    total += romans[string[idx]];
+    ++idx;
+  }
+
+}
+return total;
+
   // type your code here
 }
 
